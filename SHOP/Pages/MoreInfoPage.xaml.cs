@@ -23,7 +23,7 @@ namespace SHOP.Pages
         public MoreInfoPage()
         {
             InitializeComponent();
-            DGridPage.ItemsSource = ShopEntities.GetContext().Заказ.ToList();
+            DGridPage.ItemsSource = DatabaseContext.db.Order.ToList();
         }
 
         private void AddBt_Click(object sender, RoutedEventArgs e)

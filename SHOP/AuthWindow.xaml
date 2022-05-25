@@ -34,7 +34,7 @@
                 <!--<TextBox x:Name="TextBoxLogin" materialDesign:HintAssist.Hint="Введите логин"></TextBox>
                 <PasswordBox x:Name="PassBox" materialDesign:HintAssist.Hint="Введите пароль"></PasswordBox>-->
 
-                <Button FontSize="14" FontWeight="DemiBold" Width="300" Template="{StaticResource btTemplate}" Content="Войти" Margin="0 20"  Click="Button_Auth_Click"/>
+                <Button FontSize="14" IsDefault="True" FontWeight="DemiBold" Width="300" Template="{StaticResource btTemplate}" Content="Войти" Margin="0 20"  Click="Button_Auth_Click"/>
             </StackPanel>
         </Border>
 

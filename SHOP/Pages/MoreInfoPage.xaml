@@ -16,13 +16,11 @@
         <Button Name="AddBt" Click="AddBt_Click" Grid.Row="2" Template="{StaticResource btTemplate}" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150">Добавить запись</Button>
         <DataGrid x:Name="DGridPage" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="14" Header="Код заказа" Binding="{Binding КодЗаказа}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Дата заказа" Binding="{Binding ДатаЗаказа,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Дата исполнения" Binding="{Binding ДатаИсполнения,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Товар" Binding="{Binding Товар.Название}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Тип_оплаты.Сумма}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Клиент" Binding="{Binding Клиенты.Фамилия}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Поставщик" Binding="{Binding Поставщик.Наименование}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Код заказа" Binding="{Binding Id}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Дата заказа" Binding="{Binding OrderDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Дата исполнения" Binding="{Binding RecieveDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Sum}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Клиент" Binding="{Binding Client.Surname}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

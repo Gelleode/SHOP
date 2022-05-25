@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace SHOP.DBModel
 {
     using System;
@@ -30,7 +32,7 @@ namespace SHOP.DBModel
         public string OrderName { get; set; }
 
         public int ClientId { get; set; }
-
+        public int Sum => ProductOrder.Sum(p => p.Sum);
         public virtual Client Client { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

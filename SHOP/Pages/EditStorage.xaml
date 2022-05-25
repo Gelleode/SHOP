@@ -28,10 +28,10 @@
                         <TextBlock FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Right">Поставщик:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="20 0 0 0">
-                        <TextBox Text="{Binding Название}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
-                        <TextBox Text="{Binding Цена}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="PriceText"></TextBox>
-                        <TextBox Text="{Binding Количество}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="AllCountText"></TextBox>
-                        <ComboBox SelectedItem="{Binding Поставщик}" DisplayMemberPath="Наименование" FontSize="14" VerticalContentAlignment="Center" Width="250" x:Name="ProviderComboBox"></ComboBox>
+                        <TextBox Text="{Binding Title}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
+                        <TextBox Text="{Binding Price}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="PriceText"></TextBox>
+                        <TextBox Text="{Binding CountInStock}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="AllCountText"></TextBox>
+                        <ComboBox SelectedItem="{Binding Supplier}" DisplayMemberPath="Name" FontSize="14" VerticalContentAlignment="Center" Width="250" x:Name="ProviderComboBox"></ComboBox>
                     </StackPanel>
                 </StackPanel>
 

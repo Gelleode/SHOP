@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SHOP.Pages
 {
@@ -23,12 +13,16 @@ namespace SHOP.Pages
         public StatisticsPage()
         {
             InitializeComponent();
-            var payment = ShopEntities.GetContext().Тип_оплаты;
+            var payment = DatabaseContext.db.ProductOrder;
 
-            AllSumText.Text = Convert.ToString(payment.Sum(p=>p.Сумма));
-            AllSaleText.Text = Convert.ToString(payment.Sum(p=>p.Количество));
-            MaxCountText.Text = Convert.ToString(payment.Max(p=>p.Количество));
-            MinCountText.Text = Convert.ToString(payment.Min(p =>p.Количество));
+            int totalSum = 0;
+            foreach (var po in payment) 
+                totalSum += po.Product.Price * po.Quantity;
+            
+            AllSumText.Text = Convert.ToString(totalSum);
+            AllSaleText.Text = Convert.ToString(payment.Sum(p=>p.Quantity));
+            MaxCountText.Text = Convert.ToString(payment.Max(p=>p.Quantity));
+            MinCountText.Text = Convert.ToString(payment.Min(p =>p.Quantity));
         }
 
         private void MoreInfoBt_Click(object sender, RoutedEventArgs e)

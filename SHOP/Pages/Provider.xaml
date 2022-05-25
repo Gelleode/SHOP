@@ -29,14 +29,14 @@
                         </Image>
                         <StackPanel Margin="20" Orientation="Vertical" HorizontalAlignment="Center" Width="350">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Name="CodeText" FontFamily="Comic Sans MS" FontSize="18" Text="{Binding КодПоставщика}" FontWeight="DemiBold"></TextBlock>
+                                <TextBlock Name="CodeText" FontFamily="Comic Sans MS" FontSize="18" Text="{Binding Id}" FontWeight="DemiBold"></TextBlock>
                                 <TextBlock FontFamily="Comic Sans MS" FontSize="18" Text=" || " FontWeight="DemiBold"></TextBlock>
-                                <TextBlock Name="AgenttText" FontFamily="Comic Sans MS" FontSize="18" Text="{Binding Наименование}" FontWeight="DemiBold"></TextBlock>
+                                <TextBlock Name="AgenttText" FontFamily="Comic Sans MS" FontSize="18" Text="{Binding Name}" FontWeight="DemiBold"></TextBlock>
                             </StackPanel>
-                            <TextBlock Name="BossText" FontSize="14" FontFamily="Comic Sans MS" Text="{Binding Руководитель, StringFormat={}Руководитель: {0}}"></TextBlock>
-                            <TextBlock Name="InnText" FontSize="14" FontFamily="Comic Sans MS" Text="{Binding ИНН, StringFormat={}ИНН: {0}}"></TextBlock>
-                            <TextBlock Name="PhoneText" FontFamily="Comic Sans MS" FontSize="14" Text="{Binding Телефон, StringFormat={}Телефон: {0}}"></TextBlock>
-                            <TextBlock Name="AdresText" FontFamily="Comic Sans MS" FontSize="14" Text="{Binding Адрес, StringFormat={}Адрес: {0}}"></TextBlock>
+                            <TextBlock Name="BossText" FontSize="14" FontFamily="Comic Sans MS" Text="{Binding DirectorName, StringFormat={}DirectorName: {0}}"></TextBlock>
+                            <TextBlock Name="InnText" FontSize="14" FontFamily="Comic Sans MS" Text="{Binding INN, StringFormat={}INN: {0}}"></TextBlock>
+                            <TextBlock Name="PhoneText" FontFamily="Comic Sans MS" FontSize="14" Text="{Binding Phone, StringFormat={}Phone: {0}}"></TextBlock>
+                            <TextBlock Name="AdresText" FontFamily="Comic Sans MS" FontSize="14" Text="{Binding Address, StringFormat={}Address: {0}}"></TextBlock>
                         </StackPanel>
                         <Button Name="EditBt" Width="130" Height="25" Margin="20" FontSize="14" HorizontalAlignment="Right" Click="EditBt_Click">Редактировать</Button>
                     </WrapPanel>

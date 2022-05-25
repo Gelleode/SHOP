@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SHOP.DBModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,12 @@ namespace SHOP.Pages
         public Provider()
         {
             InitializeComponent();
-            LViewProviders.ItemsSource = ShopEntities.GetContext().Поставщик.ToList();
+            LViewProviders.ItemsSource = DatabaseContext.db.Supplier.ToList();
         }
 
         private void EditBt_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.EditProviders((sender as Button).DataContext as Поставщик));
+            Manager.MainFrame.Navigate(new Pages.EditProviders((sender as Button).DataContext as Supplier));
         }
 
         private void AddBt_Click(object sender, RoutedEventArgs e)
@@ -38,17 +39,17 @@ namespace SHOP.Pages
 
         private void DeleteBt_Click(object sender, RoutedEventArgs e)
         {
-            var providersForRemoving = LViewProviders.SelectedItems.Cast<Поставщик>().ToList();
+            var providersForRemoving = LViewProviders.SelectedItems.Cast<Supplier>().ToList();
             if (MessageBox.Show($"Вы точно хотите удалить следующие {providersForRemoving.Count()} элементов?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    ShopEntities.GetContext().Поставщик.RemoveRange(providersForRemoving);
-                    ShopEntities.GetContext().SaveChanges();
+                    DatabaseContext.db.Supplier.RemoveRange(providersForRemoving);
+                    DatabaseContext.db.SaveChanges();
                     MessageBox.Show("Данные успешно удалены", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    LViewProviders.ItemsSource = ShopEntities.GetContext().Товар.ToList();
+                    LViewProviders.ItemsSource = DatabaseContext.db.Supplier.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -61,8 +62,8 @@ namespace SHOP.Pages
         {
             if (Visibility == Visibility.Visible)
             {
-                ShopEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                LViewProviders.ItemsSource = ShopEntities.GetContext().Поставщик.ToList();
+                DatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                LViewProviders.ItemsSource = DatabaseContext.db.Supplier.ToList();
             }
         }
     }
