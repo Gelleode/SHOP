@@ -130,7 +130,7 @@
     <Compile Include="DBModel\Order.cs" />
     <Compile Include="DBModel\PaymentType.cs" />
     <Compile Include="DBModel\Product.cs" />
-    <Compile Include="DBModel\ProductOrder.cs" />
+    <Compile Include="DBModel\Role.cs" />
     <Compile Include="DBModel\ShopDB.cs" />
     <Compile Include="DBModel\Supplier.cs" />
     <Compile Include="DBModel\sysdiagrams.cs" />
@@ -307,6 +307,10 @@
     <Resource Include="Resources\picture.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\blue.png" />
+    <Resource Include="Resources\green.png" />
+    <Resource Include="Resources\red.png" />
+    <Resource Include="Resources\yelow.png" />
     <Content Include="ShopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ShopModel.edmx</DependentUpon>

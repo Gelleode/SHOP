@@ -6,21 +6,22 @@ namespace SHOP.DBModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Importance")]
-    public partial class Importance
+    [Table("Role")]
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Importance()
+        public Role()
         {
-            Note = new HashSet<Note>();
+            User = new HashSet<User>();
         }
 
         public int Id { get; set; }
 
-        [Required] [StringLength(50)] public string Title { get; set; }
-        public byte[] Photo { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Title { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Note> Note { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }

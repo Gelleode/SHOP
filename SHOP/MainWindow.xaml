@@ -45,7 +45,7 @@
                 <TextBox x:Name="TextBoxEmail" materialDesign:HintAssist.Hint="Email"></TextBox>-->
 
                 <Button FontSize="14" FontWeight="DemiBold" Width="300" Template="{StaticResource btTemplate}" Content="Зарегестрироваться" Margin="0 20"  Click="Button_Reg_Click"/>
-                <Button Visibility="Hidden" FontSize="14" FontWeight="DemiBold" Width="100" Template="{StaticResource btTemplate}" Content="обойти" Margin="0 20"  Click="Obhod_Click"/>
+                <Button x:Name="BtnObhod" Visibility="Hidden" FontSize="14" FontWeight="DemiBold" Width="100" Template="{StaticResource btTemplate}" Content="обойти" Margin="0 20"  Click="Obhod_Click"/>
             </StackPanel>
         </Border>
     </Grid>

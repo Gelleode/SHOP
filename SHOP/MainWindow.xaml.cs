@@ -22,10 +22,21 @@ namespace SHOP
     public partial class MainWindow : Window
     {
 
-
+        /*приложение для магазина "Shop"
+        1. Регистрация и авторизация(пользователю admin доступен функционал удаления , другим нет)
+        6.Поиск и фильтрация по таблицам(на скриншотах ее нету)
+        7.вывод отчета в эксель или на печать сразу(на скриншотах нету)
+        8.Хотелось бы добавить надпись на которой будет отображаться, какой пользователь авторизован на дынный момент.
+        */
         public MainWindow()
         {
             InitializeComponent();
+
+#if DEBUG
+            BtnObhod.Visibility = Visibility.Visible;
+#else
+            BtnObhod.Visibility = Visibility.Hidden;
+#endif
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -104,6 +115,8 @@ namespace SHOP
 
         private void Obhod_Click(object sender, RoutedEventArgs e)
         {
+            var usr = DatabaseContext.db.User.Find("11111");
+            Manager.User = usr;
             UserPageWindow userPageWindow = new UserPageWindow();
             userPageWindow.Show();
             Close();

@@ -29,9 +29,9 @@
                         <TextBlock FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Right" Margin="0 0 0 8">Руководитель:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="20 0 0 0">
-                        <TextBox Text="{Binding Наименование}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
-                        <TextBox Text="{Binding ИНН}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="InnText"></TextBox>
-                        <TextBox Text="{Binding Адрес}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="AdresText">
+                        <TextBox Text="{Binding Name}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
+                        <TextBox Text="{Binding INN}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="InnText"></TextBox>
+                        <TextBox Text="{Binding Address}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="AdresText">
                             <TextBox.ToolTip>
                                 <ToolTip HasDropShadow="False" Placement="Relative" VerticalOffset="10">
                                     <StackPanel Orientation="Vertical">
@@ -41,7 +41,7 @@
                                 </ToolTip>
                             </TextBox.ToolTip>
                         </TextBox>
-                        <TextBox Text="{Binding Телефон}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="PhoneText">
+                        <TextBox Text="{Binding Phone}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="PhoneText">
                             <TextBox.ToolTip>
                                 <ToolTip HasDropShadow="False" Placement="Relative" VerticalOffset="10">
                                     <StackPanel Orientation="Vertical">
@@ -53,7 +53,7 @@
                                 </ToolTip>
                             </TextBox.ToolTip>
                         </TextBox>
-                        <TextBox Text="{Binding Руководитель}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="BossText"></TextBox>
+                        <TextBox Text="{Binding DirectorName}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="BossText"></TextBox>
                     </StackPanel>
                 </StackPanel>
 

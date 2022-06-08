@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SHOP.Pages
 {
@@ -28,7 +17,15 @@ namespace SHOP.Pages
 
         private void AddBt_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.AddNewRecordPage());
+            Manager.MainFrame.Navigate(new AddNewRecordPage(null));
+        }
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                DatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridPage.ItemsSource = DatabaseContext.db.Product.ToList();
+            }
         }
     }
 }

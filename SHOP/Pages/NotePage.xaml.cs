@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SHOP.DBModel;
 
 namespace SHOP.Pages
 {
@@ -23,31 +24,31 @@ namespace SHOP.Pages
         public NotePage()
         {
             InitializeComponent();
-            LViewNote.ItemsSource = ShopEntities.GetContext().Заметки.ToList();
+            LViewNote.ItemsSource = DatabaseContext.db.Note.ToList();
         }
 
         private void AddBt_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.EditNotePage(null));
+            Manager.MainFrame.Navigate(new EditNotePage(null));
         }
 
         private void DeleteBt_Click(object sender, RoutedEventArgs e)
         {
-            var notesForRemoving = LViewNote.SelectedItems.Cast<Заметки>().ToList();
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {notesForRemoving.Count()} элементов?", "Внимание",
+            var notesForRemoving = LViewNote.SelectedItems.Cast<Note>().ToList();
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {notesForRemoving.Count} элементов?", "Внимание",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    ShopEntities.GetContext().Заметки.RemoveRange(notesForRemoving);
-                    ShopEntities.GetContext().SaveChanges();
+                    DatabaseContext.db.Note.RemoveRange(notesForRemoving);
+                    DatabaseContext.db.SaveChanges();
                     MessageBox.Show("Данные успешно удалены", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    LViewNote.ItemsSource = ShopEntities.GetContext().Товар.ToList();
+                    LViewNote.ItemsSource = DatabaseContext.db.Note.ToList();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -56,14 +57,14 @@ namespace SHOP.Pages
         {
             if (Visibility == Visibility.Visible)
             {
-                ShopEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                LViewNote.ItemsSource = ShopEntities.GetContext().Заметки.ToList();
+                DatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                LViewNote.ItemsSource = DatabaseContext.db.Note.ToList();
             }
         }
 
         private void MoreBt_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.EditNotePage((sender as Button).DataContext as Заметки));
+            Manager.MainFrame.Navigate(new EditNotePage((sender as Button).DataContext as Note));
         }
     }
 }

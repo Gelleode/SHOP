@@ -18,7 +18,7 @@ namespace SHOP.DBModel
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<PaymentType> PaymentType { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductOrder> ProductOrder { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -61,16 +61,7 @@ namespace SHOP.DBModel
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Order>()
-                .Property(e => e.OrderName)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Order>()
                 .HasMany(e => e.PaymentType)
-                .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Order>()
-                .HasMany(e => e.ProductOrder)
                 .WithRequired(e => e.Order)
                 .WillCascadeOnDelete(false);
 
@@ -83,7 +74,7 @@ namespace SHOP.DBModel
                 .IsFixedLength();
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.ProductOrder)
+                .HasMany(e => e.Order)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 

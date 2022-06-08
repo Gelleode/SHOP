@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using static System.Int32;
 
 namespace SHOP.Pages
 {
@@ -13,16 +14,30 @@ namespace SHOP.Pages
         public StatisticsPage()
         {
             InitializeComponent();
-            var payment = DatabaseContext.db.ProductOrder;
 
             int totalSum = 0;
-            foreach (var po in payment) 
-                totalSum += po.Product.Price * po.Quantity;
-            
+            int totalSales = 0;
+            int maxSale = MinValue;
+            int minSale = MaxValue;
+            foreach (var order in DatabaseContext.db.Order)
+            {
+                totalSum += order.Product.Price;
+                totalSales++;
+                if (maxSale < order.Product.Price)
+                    maxSale = order.Product.Price;
+                if (minSale > order.Product.Price)
+                    minSale = order.Product.Price;
+            }
+
+            if (maxSale == MinValue)
+                maxSale = 0;
+            if (minSale == MaxValue)
+                minSale = 0;
+
             AllSumText.Text = Convert.ToString(totalSum);
-            AllSaleText.Text = Convert.ToString(payment.Sum(p=>p.Quantity));
-            MaxCountText.Text = Convert.ToString(payment.Max(p=>p.Quantity));
-            MinCountText.Text = Convert.ToString(payment.Min(p =>p.Quantity));
+            AllSaleText.Text = Convert.ToString(totalSales);
+            MaxCountText.Text = Convert.ToString(maxSale);
+            MinCountText.Text = Convert.ToString(minSale);
         }
 
         private void MoreInfoBt_Click(object sender, RoutedEventArgs e)

@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace SHOP.DBModel
 {
     using System;
@@ -15,10 +13,8 @@ namespace SHOP.DBModel
         public Order()
         {
             PaymentType = new HashSet<PaymentType>();
-            ProductOrder = new HashSet<ProductOrder>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Column(TypeName = "date")]
@@ -27,18 +23,17 @@ namespace SHOP.DBModel
         [Column(TypeName = "date")]
         public DateTime? RecieveDate { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string OrderName { get; set; }
-
         public int ClientId { get; set; }
-        public int Sum => ProductOrder.Sum(p => p.Sum);
+
+        public int ProductId { get; set; }
+
+        public int Price => Product.Price;
+
         public virtual Client Client { get; set; }
+
+        public virtual Product Product { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PaymentType> PaymentType { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductOrder> ProductOrder { get; set; }
     }
 }

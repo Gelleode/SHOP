@@ -9,7 +9,6 @@ namespace SHOP.DBModel
     [Table("Note")]
     public partial class Note
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]

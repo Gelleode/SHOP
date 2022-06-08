@@ -16,7 +16,6 @@ namespace SHOP.DBModel
             PaymentType = new HashSet<PaymentType>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -29,6 +28,7 @@ namespace SHOP.DBModel
 
         [StringLength(50)]
         public string Patronymic { get; set; }
+        public string Fullname => Surname + " " + Name + " " + Patronymic;
 
         [StringLength(50)]
         public string Address { get; set; }

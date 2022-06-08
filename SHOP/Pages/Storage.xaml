@@ -17,7 +17,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="14" Header="Название товара" Binding="{Binding Title}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Цена" Binding="{Binding Price}" Width="140"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Количество" Binding="{Binding Quantity}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Количество" Binding="{Binding CountInStock}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Поставщик" Binding="{Binding Supplier.Name}" Width="*"></DataGridTextColumn>
 
                 <DataGridTemplateColumn Width="auto">

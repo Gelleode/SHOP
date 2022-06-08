@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:SHOP.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MoreInfoPage">
+      Title="MoreInfoPage" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
                 <DataGridTextColumn FontSize="14" Header="Код заказа" Binding="{Binding Id}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Дата заказа" Binding="{Binding OrderDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Дата исполнения" Binding="{Binding RecieveDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
-                <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Sum}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Price}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Клиент" Binding="{Binding Client.Surname}" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

@@ -26,22 +26,21 @@
                         <Grid Margin="5" Width="200">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="70"></RowDefinition>
-                                <RowDefinition Height="50"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
                                 <RowDefinition Height="auto"></RowDefinition>
                             </Grid.RowDefinitions>
 
                             <Image Width="200" Margin="0 5 0 5" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Height="50">
                                 <Image.Source>
-                                    <Binding Path="СтепеньВажности.Картинка">
+                                    <Binding Path="Importance.Photo">
                                         <Binding.TargetNullValue>
                                             <ImageSource>/SHOP;component/Resources/picture.png</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            <TextBlock Grid.Row="0" FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Text="{Binding Заголовок}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <TextBlock Grid.Row="2" FontSize="14" Text="{Binding Описание}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock Grid.Row="0" FontSize="18" TextWrapping="Wrap" FontWeight="DemiBold" Text="{Binding Header}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock Grid.Row="1" FontSize="14" Text="{Binding Text}" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             <Button Template="{StaticResource btTemplate}" Width="100" Grid.Row="3" FontSize="14" Name="MoreBt" Click="MoreBt_Click">Подробнее</Button>
                         </Grid>
                     </Border>

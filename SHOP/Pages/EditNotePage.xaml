@@ -27,9 +27,9 @@
                         <TextBlock FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Right" Margin="0 0 0 8">Описание:</TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="20 0 0 0">
-                        <TextBox Text="{Binding Заголовок}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
-                        <ComboBox SelectedItem="{Binding СтепеньВажности}" DisplayMemberPath="Наименование" FontSize="14" Margin="0 0 0 5" VerticalContentAlignment="Center" Width="250" x:Name="NoteComboBox"></ComboBox>
-                        <TextBox Text="{Binding Описание}" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" Width="250" Height="80" Margin="0 0 0 5" x:Name="DescriptionText" HorizontalScrollBarVisibility="Disabled"></TextBox>
+                        <TextBox Text="{Binding Header}" FontSize="14" VerticalContentAlignment="Center" Width="250" Margin="0 0 0 5" x:Name="TitleText"></TextBox>
+                        <ComboBox SelectedItem="{Binding Importance}" DisplayMemberPath="Title" FontSize="14" Margin="0 0 0 5" VerticalContentAlignment="Center" Width="250" x:Name="NoteComboBox"></ComboBox>
+                        <TextBox Text="{Binding Text}" TextWrapping="Wrap" FontSize="14" VerticalContentAlignment="Center" Width="250" Height="80" Margin="0 0 0 5" x:Name="DescriptionText" HorizontalScrollBarVisibility="Disabled"></TextBox>
                     </StackPanel>
                 </StackPanel>
 

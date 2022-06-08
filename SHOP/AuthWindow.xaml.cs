@@ -50,6 +50,7 @@ namespace SHOP
                 var userCurrent = DatabaseContext.db.User.First(p=>p.Login == login && p.Password == pass);
                 if (userCurrent != null)
                 {
+                    Manager.User = userCurrent;
                     MessageBox.Show("Успешно","Сообщение",MessageBoxButton.OK,MessageBoxImage.Information);
                     UserPageWindow userPageWindow = new UserPageWindow();
                     userPageWindow.Show();

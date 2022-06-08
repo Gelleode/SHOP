@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using SHOP.Pages;
 
 namespace SHOP
 {
@@ -45,22 +46,22 @@ namespace SHOP
 
         private void Storage_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.Storage());
+            Manager.MainFrame.Navigate(new Storage());
         }
 
         private void Provider_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.Provider());
+            Manager.MainFrame.Navigate(new Provider());
         }
 
         private void Stat_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.StatisticsPage());
+            Manager.MainFrame.Navigate(new StatisticsPage());
         }
 
         private void Note_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new Pages.NotePage());
+            Manager.MainFrame.Navigate(new NotePage());
         }
     }
 }

@@ -15,7 +15,6 @@ namespace SHOP.DBModel
             Product = new HashSet<Product>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
@@ -32,6 +31,8 @@ namespace SHOP.DBModel
 
         [StringLength(50)]
         public string DirectorName { get; set; }
+
+        public byte[] Photo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }

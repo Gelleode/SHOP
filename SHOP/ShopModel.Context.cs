@@ -27,7 +27,7 @@ namespace SHOP
                 _instance = new ShopEntities();
             return _instance;
         }
-        
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

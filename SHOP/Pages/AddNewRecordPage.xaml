@@ -11,6 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -18,29 +19,32 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0">
-                <TextBlock FontSize="14" FontWeight="DemiBold">Название банка:</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Номер счета:</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Клиент:</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Сумма:</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Товар:</TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Количество:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Название банка:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Номер счета:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Клиент:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Товар:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Сумма:</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <TextBox Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-                <TextBox Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-                <ComboBox Height="18" VerticalContentAlignment="Center" DisplayMemberPath="Фамилия" SelectedItem="{Binding Клиенты}" Name="ClientBox"></ComboBox>
-                <TextBox Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
-                <ComboBox Height="18" VerticalContentAlignment="Center" DisplayMemberPath="Название" SelectedItem="{Binding Товар}" Name="StorageBo"></ComboBox>
-                <TextBox Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="TBoxBankName" Margin="3" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="TBoxBill" Margin="3" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
+                <ComboBox Height="20" Margin="3" VerticalContentAlignment="Center" DisplayMemberPath="Fullname" Name="ClientBox"></ComboBox>
+                <ComboBox Height="20" Margin="2" VerticalContentAlignment="Center" DisplayMemberPath="Title" Name="StorageBo"></ComboBox>
+                <TextBox x:Name="TBoxPrice" Margin="2" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"></TextBox>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Column="1" Orientation="Horizontal">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBlock ></TextBlock>
-                <TextBlock FontSize="14" FontWeight="DemiBold">Название банка:</TextBlock>
             </StackPanel>
         </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Template="{StaticResource btTemplate}" Content="Сохранить" Height="28" Width="120" 
+                FontFamily="Comic Sans MS" Click="Save_Click" Margin="10"></Button>
+            <Button Template="{StaticResource btTemplate}" Content="Назад" Height="28" Width="120" 
+                    FontFamily="Comic Sans MS" Click="GoBack_Click" Margin="10"></Button>
+        </StackPanel>
+
     </Grid>
 </Page>

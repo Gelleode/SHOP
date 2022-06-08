@@ -60,7 +60,7 @@ namespace SHOP.Pages
                 {
                     DatabaseContext.db.Supplier.Add(_currentProviders);
                 }
-                ShopEntities.GetContext().SaveChanges();
+                DatabaseContext.db.SaveChanges();
                 MessageBox.Show("Данные успешно изменены", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)

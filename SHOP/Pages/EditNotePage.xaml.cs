@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SHOP.DBModel;
 
 namespace SHOP.Pages
 {
@@ -20,25 +22,25 @@ namespace SHOP.Pages
     /// </summary>
     public partial class EditNotePage : Page
     {
-        private Заметки _notes = new Заметки();
-        public EditNotePage(Заметки selectedNote)
+        private Note _notes = new Note();
+        public EditNotePage(Note selectedNote)
         {
             InitializeComponent();
+            NoteComboBox.ItemsSource = DatabaseContext.db.Importance.ToList();
             if (selectedNote != null)
             {
                 _notes = selectedNote;
             }
             DataContext = _notes;
-            NoteComboBox.ItemsSource = ShopEntities.GetContext().СтепеньВажности.ToList();
         }
 
         private void SaveBt_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrEmpty(_notes.Заголовок))
+            if (string.IsNullOrEmpty(_notes.Header))
                 errors.AppendLine("Поле заголовок не может быть пустым");
-            if (_notes.СтепеньВажности == null)
+            if (_notes.Importance == null)
                 errors.AppendLine("Выберите степень важности");
 
 
@@ -47,13 +49,13 @@ namespace SHOP.Pages
                 MessageBox.Show(errors.ToString(), "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (_notes.IdЗаметки == 0)
+            if (_notes.Id == 0)
             {
-                ShopEntities.GetContext().Заметки.Add(_notes);
+               DatabaseContext.db.Note.Add(_notes);
             }
             try
             {
-                ShopEntities.GetContext().SaveChanges();
+                DatabaseContext.db.SaveChanges();
                 MessageBox.Show("Данные успешно изменены", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
