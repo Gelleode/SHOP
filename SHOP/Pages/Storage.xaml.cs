@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
@@ -15,10 +16,27 @@ namespace SHOP.Pages
         public Storage()
         {
             InitializeComponent();
-            var currentProduct = DatabaseContext.db.Product.ToList();
-            DGridPage.ItemsSource = currentProduct;
+            UpdateData();
+            if (Manager.User.RoleId != 2)
+                DeleteBt.Visibility = Visibility.Collapsed;
         }
 
+        private void UpdateData()
+        {
+            List<Product> products = DatabaseContext.db.Product.ToList();
+            products = Search(products);
+            DGridPage.ItemsSource = products;
+        }
+
+        private void SearchBox_OnTextChanged(object sender, TextChangedEventArgs e) => UpdateData();
+
+        private List<Product> Search(List<Product> suppliers)
+        {
+            List<Product> currentSuppliers = suppliers;
+            string searchStr = SearchBox.Text;
+            currentSuppliers = currentSuppliers.Where(p => p.Title.ToLower().Contains(searchStr.ToLower())).ToList();
+            return currentSuppliers;
+        }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new Pages.EditStorage((sender as Button).DataContext as Product));

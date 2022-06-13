@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace SHOP.DBModel
 {
     using System;
@@ -18,7 +20,9 @@ namespace SHOP.DBModel
         public int Id { get; set; }
 
         [Required] [StringLength(50)] public string Title { get; set; }
-        public byte[] Photo { get; set; }
+        [Required] [StringLength(50)] public string PhotoPath { get; set; }
+
+        public byte[] Photo => File.ReadAllBytes(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + PhotoPath);
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Note> Note { get; set; }

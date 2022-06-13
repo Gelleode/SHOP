@@ -13,15 +13,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <StackPanel Background="#FF673AB7" Orientation="Horizontal">
-                <Button Content="Склад" Height="28" Width="120"  FontFamily="Comic Sans MS" Click="Storage_Click"   />
-                <Button Content="Поставщики" Height="28" Width="120"  FontFamily="Comic Sans MS" Click="Provider_Click"/>
-                <Button Content="Статистика" Height="28" Width="120"  FontFamily="Comic Sans MS" Click="Stat_Click"/>
-                <Button Content="Заметки" Height="28" Width="120"  FontFamily="Comic Sans MS" Click="Note_Click"/>
-            </StackPanel>
+        <StackPanel Grid.Row="0" Background="#FF673AB7" Orientation="Horizontal">
+            <Button Content="Склад" Height="28" Width="120" FontFamily="Comic Sans MS" Click="Storage_Click" Margin="5, 0"/>
+            <Button Content="Поставщики" Height="28" Width="120" FontFamily="Comic Sans MS" Click="Provider_Click" Margin="5, 0"/>
+            <Button Content="Статистика" Height="28" Width="120" FontFamily="Comic Sans MS" Click="Stat_Click" Margin="5, 0"/>
+            <Button Content="Заметки" Height="28" Width="120" FontFamily="Comic Sans MS" Click="Note_Click" Margin="5, 0"/>
         </StackPanel>
-        <Button Name="BtnBack" Click="BtnBack_Click" Content="Назад" Height="28" Width="95" HorizontalAlignment="Right" Margin="0 0 20 0" FontFamily="Comic Sans MS"   />
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
+            <Button Name="BtnBack" Click="BtnBack_Click" Content="Назад" Height="28" Width="95" FontFamily="Comic Sans MS"/>
+            <Label Name="LabelUser" Height="28" FontFamily="Comic Sans MS"/>
+        </StackPanel>
         <Frame  ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden" Grid.Row="1" Name="MainFrame"></Frame>
     </Grid>
 </Window>

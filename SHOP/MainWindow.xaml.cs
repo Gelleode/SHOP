@@ -23,10 +23,7 @@ namespace SHOP
     {
 
         /*приложение для магазина "Shop"
-        1. Регистрация и авторизация(пользователю admin доступен функционал удаления , другим нет)
-        6.Поиск и фильтрация по таблицам(на скриншотах ее нету)
         7.вывод отчета в эксель или на печать сразу(на скриншотах нету)
-        8.Хотелось бы добавить надпись на которой будет отображаться, какой пользователь авторизован на дынный момент.
         */
         public MainWindow()
         {
@@ -84,7 +81,8 @@ namespace SHOP
                 User users = new User
                 {
                     Login = login,
-                    Password = pass
+                    Password = pass,
+                    RoleId = 1,
                 };
                 DatabaseContext.db.User.Add(users);
                 DatabaseContext.db.SaveChanges();

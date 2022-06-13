@@ -164,50 +164,8 @@
     <Compile Include="Pages\Storage.xaml.cs">
       <DependentUpon>Storage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShopModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ShopModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ShopModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ShopModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="UserPageWindow.xaml.cs">
       <DependentUpon>UserPageWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Заказ.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Заметки.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Клиенты.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Пользователи.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Поставщик.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="СтепеньВажности.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Тип_оплаты.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Товар.cs">
-      <DependentUpon>ShopModel.tt</DependentUpon>
     </Compile>
     <Page Include="AuthWindow.xaml">
       <SubType>Designer</SubType>
@@ -289,13 +247,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="ShopModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="ShopModel.edmx.diagram">
-      <DependentUpon>ShopModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -310,17 +261,7 @@
     <Resource Include="Resources\blue.png" />
     <Resource Include="Resources\green.png" />
     <Resource Include="Resources\red.png" />
-    <Resource Include="Resources\yelow.png" />
-    <Content Include="ShopModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopModel.edmx</DependentUpon>
-      <LastGenOutput>ShopModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ShopModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopModel.edmx</DependentUpon>
-      <LastGenOutput>ShopModel.cs</LastGenOutput>
-    </Content>
+    <Resource Include="Resources\yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -24,7 +24,24 @@ namespace SHOP.Pages
         public Provider()
         {
             InitializeComponent();
-            LViewProviders.ItemsSource = DatabaseContext.db.Supplier.ToList();
+            if (Manager.User.RoleId != 2)
+                DeleteBt.Visibility = Visibility.Collapsed;
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            List<Supplier> currentSuppliers = DatabaseContext.db.Supplier.ToList();
+            currentSuppliers = Search(currentSuppliers);
+            LViewProviders.ItemsSource = currentSuppliers;
+        }
+
+        private List<Supplier> Search(List<Supplier> suppliers)
+        {
+            List<Supplier> currentSuppliers = suppliers;
+            string searchStr = SearchBox.Text;
+            currentSuppliers = currentSuppliers.Where(p => p.Name.ToLower().Contains(searchStr.ToLower())).ToList();
+            return currentSuppliers;
         }
 
         private void EditBt_Click(object sender, RoutedEventArgs e)
@@ -65,6 +82,11 @@ namespace SHOP.Pages
                 DatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
                 LViewProviders.ItemsSource = DatabaseContext.db.Supplier.ToList();
             }
+        }
+
+        private void SearchBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateList();
         }
     }
 }

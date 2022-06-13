@@ -24,6 +24,7 @@ namespace SHOP
         {
             InitializeComponent();
             MainFrame.Navigate(new Pages.Storage());
+            LabelUser.Content = Manager.User.Login;
             Manager.MainFrame = MainFrame;
         }
 
@@ -34,6 +35,15 @@ namespace SHOP
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
+            var Content = MainFrame.Content;
+            if (Content.GetType() == typeof(Storage) ||
+                Content.GetType() == typeof(Provider) ||
+                Content.GetType() == typeof(NotePage) ||
+                Content.GetType() == typeof(StatisticsPage))
+            {
+                BtnBack.Visibility = Visibility.Hidden;
+                return;
+            }
             if (MainFrame.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
