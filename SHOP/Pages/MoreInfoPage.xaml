@@ -24,6 +24,7 @@
                 <DataGridTextColumn FontSize="14" Header="Дата заказа" Binding="{Binding OrderDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Дата исполнения" Binding="{Binding RecieveDate,StringFormat='{}{0:dd.MM.yyyy}'}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Price}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="14" Header="Общая цена" Binding="{Binding Quantity}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn FontSize="14" Header="Клиент" Binding="{Binding Client.Surname}" Width="*"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>

@@ -26,8 +26,9 @@ namespace SHOP.DBModel
         public int ClientId { get; set; }
 
         public int ProductId { get; set; }
+        public int Quantity { get; set; }
 
-        public int Price => Product.Price;
+        public int Price => Product.Price * Quantity;
 
         public virtual Client Client { get; set; }
 

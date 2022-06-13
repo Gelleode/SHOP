@@ -25,6 +25,7 @@
                 <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Номер счета:</TextBlock>
                 <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Клиент:</TextBlock>
                 <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Товар:</TextBlock>
+                <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Количество:</TextBlock>
                 <TextBlock FontSize="14" FontWeight="DemiBold" Margin="2">Сумма:</TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical">
@@ -32,6 +33,7 @@
                 <TextBox x:Name="TBoxBill" Margin="3" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></TextBox>
                 <ComboBox Height="20" Margin="3" VerticalContentAlignment="Center" DisplayMemberPath="Fullname" Name="ClientBox"></ComboBox>
                 <ComboBox Height="20" Margin="2" VerticalContentAlignment="Center" DisplayMemberPath="Title" Name="StorageBo"></ComboBox>
+                <TextBox x:Name="TBoxQuantity" Margin="2" Width="150" VerticalContentAlignment="Center" PreviewTextInput="TBoxQuantity_OnPreviewTextInput"></TextBox>
                 <TextBox x:Name="TBoxPrice" Margin="2" Width="150" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"></TextBox>
             </StackPanel>
         </StackPanel>

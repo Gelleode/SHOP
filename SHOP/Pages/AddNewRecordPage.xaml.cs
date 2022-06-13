@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +23,7 @@ namespace SHOP.Pages
     public partial class AddNewRecordPage : Page
     {
         private Order _order = new Order();
-
+        private static readonly Regex Regex = new Regex("[^0-9]+");
         public AddNewRecordPage(Order curOrder)
         {
             InitializeComponent();
@@ -40,6 +41,12 @@ namespace SHOP.Pages
                 StorageBo.SelectedIndex = 0;
             }
         }
+        private static bool IsTextAllowed(string text)
+        {
+            return !Regex.IsMatch(text);
+        }
+
+
 
         private void GoBack_Click(object sender, RoutedEventArgs e)
         {
@@ -53,6 +60,8 @@ namespace SHOP.Pages
                 errors.AppendLine("Поле с названием не может быть пустым");
             if (string.IsNullOrEmpty(TBoxBill.Text))
                 errors.AppendLine("Поле со счетом не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxQuantity.Text))
+                errors.AppendLine("Поле с количеством не может быть пустым");
 
             if (errors.Length > 0)
             {
@@ -70,6 +79,7 @@ namespace SHOP.Pages
                 }
                 _order.ProductId = ((Product)StorageBo.SelectedItem).Id;
                 _order.ClientId = ((Client)ClientBox.SelectedItem).Id;
+                _order.Quantity = Convert.ToInt32(TBoxQuantity.Text);
                 PaymentType payment = new PaymentType()
                 {
                     BankAccountNumber = Convert.ToInt32(TBoxBill.Text),
@@ -87,5 +97,7 @@ namespace SHOP.Pages
                 throw;
             }
         }
+
+        private void TBoxQuantity_OnPreviewTextInput(object sender, TextCompositionEventArgs e) => e.Handled = Regex.IsMatch(e.Text);
     }
 }
