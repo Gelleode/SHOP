@@ -21,12 +21,12 @@ namespace SHOP.Pages
             int minSale = MaxValue;
             foreach (var order in DatabaseContext.db.Order)
             {
-                totalSum += order.Product.Price;
-                totalSales++;
-                if (maxSale < order.Product.Price)
-                    maxSale = order.Product.Price;
-                if (minSale > order.Product.Price)
-                    minSale = order.Product.Price;
+                totalSum += order.Product.Price * order.Quantity;
+                totalSales += order.Quantity;
+                if (maxSale < order.Product.Price * order.Quantity)
+                    maxSale = order.Product.Price * order.Quantity;
+                if (minSale > order.Product.Price * order.Quantity)
+                    minSale = order.Product.Price * order.Quantity;
             }
 
             if (maxSale == MinValue)

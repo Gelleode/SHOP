@@ -26,26 +26,6 @@ namespace SHOP.DBModel
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Client>()
-                .Property(e => e.Surname)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Name)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Patronymic)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Address)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Client>()
-                .Property(e => e.Phone)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Client>()
                 .HasMany(e => e.Order)
                 .WithRequired(e => e.Client)
                 .WillCascadeOnDelete(false);
@@ -69,30 +49,11 @@ namespace SHOP.DBModel
                 .Property(e => e.BankName)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Product>()
-                .Property(e => e.Title)
-                .IsFixedLength();
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.Order)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Name)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Address)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Phone)
-                .IsFixedLength();
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.DirectorName)
-                .IsFixedLength();
 
             modelBuilder.Entity<Supplier>()
                 .HasMany(e => e.Product)

@@ -14,7 +14,10 @@
             <RowDefinition Height="181*"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Button Name="AddBt" Click="AddBt_Click" Grid.Row="2" Template="{StaticResource btTemplate}" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150">Добавить запись</Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="AddBt" Click="AddBt_Click" Template="{StaticResource btTemplate}" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150">Добавить запись</Button>
+            <Button FontSize="14" Template="{StaticResource btTemplate}" FontWeight="DemiBold" Width="100" Height="25" Margin="50 0 0 0" Name="DeleteBt" Click="DeleteBt_Click">Удалить</Button>
+        </StackPanel>
         <DataGrid x:Name="DGridPage" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.DataContext>
                 <dbModel:Order></dbModel:Order>

@@ -27,19 +27,14 @@ namespace SHOP.Pages
         public AddNewRecordPage(Order curOrder)
         {
             InitializeComponent();
-            ClientBox.ItemsSource = DatabaseContext.db.Client.ToList();
             StorageBo.ItemsSource = DatabaseContext.db.Product.ToList();
             if (curOrder != null)
             {
                 _order = curOrder;
-                ClientBox.SelectedItem = curOrder.Client;
                 StorageBo.SelectedItem = curOrder.Product;
             }
             else
-            {
-                ClientBox.SelectedIndex = 0;
                 StorageBo.SelectedIndex = 0;
-            }
         }
         private static bool IsTextAllowed(string text)
         {
@@ -56,10 +51,16 @@ namespace SHOP.Pages
         {
             StringBuilder errors = new StringBuilder();
 
-            if (string.IsNullOrEmpty(TBoxBankName.Text))
-                errors.AppendLine("Поле с названием не может быть пустым");
-            if (string.IsNullOrEmpty(TBoxBill.Text))
-                errors.AppendLine("Поле со счетом не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxSurname.Text))
+                errors.AppendLine("Поле с фамилией не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxName.Text))
+                errors.AppendLine("Поле с именем не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxPatronymic.Text))
+                errors.AppendLine("Поле с отчеством не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxAddress.Text))
+                errors.AppendLine("Поле с адресом не может быть пустым");
+            if (string.IsNullOrEmpty(TBoxPhone.Text))
+                errors.AppendLine("Поле с номером не может быть пустым");
             if (string.IsNullOrEmpty(TBoxQuantity.Text))
                 errors.AppendLine("Поле с количеством не может быть пустым");
 
@@ -78,15 +79,16 @@ namespace SHOP.Pages
                     DatabaseContext.db.Order.Add(_order);
                 }
                 _order.ProductId = ((Product)StorageBo.SelectedItem).Id;
-                _order.ClientId = ((Client)ClientBox.SelectedItem).Id;
-                _order.Quantity = Convert.ToInt32(TBoxQuantity.Text);
-                PaymentType payment = new PaymentType()
+                _order.Client = new Client()
                 {
-                    BankAccountNumber = Convert.ToInt32(TBoxBill.Text),
-                    BankName = TBoxBankName.Text,
-                    ClientId = ((Client)ClientBox.SelectedItem).Id,
-                    Order = _order,
+                    Surname = TBoxSurname.Text.Trim(),
+                    Name = TBoxName.Text.Trim(),
+                    Patronymic = TBoxPatronymic.Text.Trim(),
+                    Address = TBoxAddress.Text.Trim(),
+                    Phone = TBoxPhone.Text.Trim(),
                 };
+                _order.Quantity = Convert.ToInt32(TBoxQuantity.Text);
+                
                 DatabaseContext.db.SaveChanges();
                 MessageBox.Show("Данные успешно изменены", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
             }
